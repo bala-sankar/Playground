@@ -1,0 +1,18 @@
+DesignPatterns
+==============
+Strategy - defines a family of algorithms encapsulates each one , and makes them interchangable. Strategy lets the
+    algorithm vary independently from clients that we use it.
+
+Observer - defines one-to-many dependency between objects  so that when one object changes state, all of its dependents
+    are notified  and updated automatically.
+
+Decorator = attaches additional responsibilities to an object dynamically. Decorators provide a flexible alternative to
+    subclassing for extending functionality.
+
+Design Principle
+==================
+* Program to an interface, not an implementation
+* Favor composition over inheritance
+* Encapsulate what varies
+* Strive for loosely coupled designs between objects that interact
+* Classes should be open for extension, but closed for modification
