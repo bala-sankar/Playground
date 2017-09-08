@@ -12,21 +12,18 @@ public class WeatherData implements Publisher {
     private float humidity;
     private float pressure;
 
-    @Override
     public void registerSubscriber(Subscriber subscriber) {
         if (!subscribers.contains(subscriber)) {
             subscribers.add(subscriber);
         }
     }
 
-    @Override
     public void removeSubscriber(Subscriber subscriber) {
         if (subscribers.contains(subscriber)) {
             subscribers.remove(subscriber);
         }
     }
 
-    @Override
     public void notifySubscriber() {
         for (Subscriber subscriber : subscribers) {
             subscriber.update(temperature, humidity, pressure);

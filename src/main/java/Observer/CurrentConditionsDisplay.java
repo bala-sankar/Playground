@@ -12,12 +12,10 @@ public class CurrentConditionsDisplay implements Subscriber, DisplayElement {
         weatherData.registerSubscriber(this);
     }
 
-    @Override
     public String display() {
         return "Current conditions: " + temperature + "F degrees and " + humidity + "%humidity";
     }
 
-    @Override
     public void update(float temperature, float humidity, float pressure) {
         this.temperature = temperature;
         this.humidity = humidity;
