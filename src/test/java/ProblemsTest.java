@@ -6,6 +6,7 @@ import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestName;
+import problems.Palindrome;
 import problems.Parentheses;
 
 public class ProblemsTest {
@@ -44,5 +45,12 @@ public class ProblemsTest {
         Assert.assertTrue(Parentheses.check("{(a+[b+c])+d}"));
         Assert.assertFalse(Parentheses.check("{(a+[b+c]+d})"));
         Assert.assertFalse(Parentheses.check("{(a+[b+c]+d"));
+    }
+
+    @Test(timeout = TIMEOUT)
+    public void palindromeTest() {
+        Assert.assertTrue(Palindrome.check("mom"));
+        Assert.assertFalse(Palindrome.check("cat"));
+        Assert.assertFalse(Palindrome.check("Mom"));
     }
 }

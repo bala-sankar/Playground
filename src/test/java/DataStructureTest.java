@@ -1,3 +1,7 @@
+import data_structure.queue.Deque;
+import data_structure.queue.DequeImpl;
+import data_structure.queue.Queue;
+import data_structure.queue.QueueImpl;
 import data_structure.stack.Stack;
 import data_structure.stack.StackImpl;
 import org.junit.After;
@@ -43,13 +47,38 @@ public class DataStructureTest {
     @Test(timeout = TIMEOUT)
     public void stackTest() {
         Stack<String> items = new StackImpl<String>();
-        Assert.assertEquals(items.isEmpty(), true);
+        Assert.assertTrue(items.isEmpty());
         items.push("Hello");
         Assert.assertEquals(items.peep(), "Hello");
         items.push("World");
         Assert.assertEquals(items.peep(), "World");
         Assert.assertEquals(items.pop(), "World");
         Assert.assertEquals(items.peep(), "Hello");
+        Assert.assertEquals(items.size(), 1);
+    }
+
+    @Test(timeout = TIMEOUT)
+    public void queueTest() {
+        Queue<String> items = new QueueImpl<String>();
+        Assert.assertTrue(items.isEmpty());
+        items.enqueue("Hello");
+        items.enqueue("World");
+        Assert.assertFalse(items.isEmpty());
+        Assert.assertEquals(items.size(), 2);
+        Assert.assertEquals(items.dequeue(), "Hello");
+        Assert.assertEquals(items.size(), 1);
+    }
+
+    @Test(timeout = TIMEOUT)
+    public void dequeTest() {
+        Deque<String> items = new DequeImpl<String>();
+        Assert.assertTrue(items.isEmpty());
+        items.addRear("Fun");
+        items.addFront("Hello");
+        items.addRear("World");
+        Assert.assertEquals(items.size(), 3);
+        Assert.assertEquals(items.removeFront(), "Hello");
+        Assert.assertEquals(items.removeRear(), "World");
         Assert.assertEquals(items.size(), 1);
     }
 }

@@ -20,10 +20,7 @@ public class Parentheses {
                 }
             }
         }
-        if (!paren.isEmpty()) {
-            return false;
-        }
-        return true;
+        return paren.isEmpty();
     }
 
     private static char matcher(char symbol) {
