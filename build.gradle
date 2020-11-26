@@ -1,0 +1,13 @@
+group = 'com.balasankar'
+version = '1.0'
+description = "Code playground monolith repo"
+
+apply plugin: 'java'
+
+repositories {
+    jcenter()
+}
+
+test {
+    useJUnitPlatform()
+}
