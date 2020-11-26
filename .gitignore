@@ -2,3 +2,6 @@
 target
 .gradle
 build
+gradlew
+gradle
+gradlew.bat
