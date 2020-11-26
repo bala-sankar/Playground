@@ -1,9 +1,9 @@
-import design_pattern.decorator.*;
-import design_pattern.observer.CurrentConditionsDisplay;
-import design_pattern.observer.WeatherData;
-import design_pattern.singleton.Singleton;
-import design_pattern.strategy.Duck;
-import design_pattern.strategy.MallardDuck;
+import designpattern.decorator.*;
+import designpattern.observer.CurrentConditionsDisplay;
+import designpattern.observer.WeatherData;
+import designpattern.singleton.Singleton;
+import designpattern.strategy.Duck;
+import designpattern.strategy.MallardDuck;
 import org.junit.*;
 import org.junit.rules.TestName;
 

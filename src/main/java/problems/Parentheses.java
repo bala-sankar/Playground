@@ -1,7 +1,7 @@
 package problems;
 
-import data_structure.stack.Stack;
-import data_structure.stack.StackImpl;
+import datastructure.stack.Stack;
+import datastructure.stack.StackImpl;
 
 public class Parentheses {
     public static boolean check(String expression) {

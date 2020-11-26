@@ -1,7 +1,7 @@
 package problems;
 
-import data_structure.queue.Deque;
-import data_structure.queue.DequeImpl;
+import datastructure.queue.Deque;
+import datastructure.queue.DequeImpl;
 
 public class Palindrome {
     public static boolean check(String word) {

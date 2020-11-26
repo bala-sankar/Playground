@@ -1,9 +1,9 @@
-import data_structure.queue.Deque;
-import data_structure.queue.DequeImpl;
-import data_structure.queue.Queue;
-import data_structure.queue.QueueImpl;
-import data_structure.stack.Stack;
-import data_structure.stack.StackImpl;
+import datastructure.queue.Deque;
+import datastructure.queue.DequeImpl;
+import datastructure.queue.Queue;
+import datastructure.queue.QueueImpl;
+import datastructure.stack.Stack;
+import datastructure.stack.StackImpl;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
