@@ -1,4 +1,4 @@
-package euler.problems;
+package problems;
 
 import datastructure.queue.Deque;
 import datastructure.queue.DequeImpl;

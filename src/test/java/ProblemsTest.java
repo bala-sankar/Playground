@@ -6,8 +6,8 @@ import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestName;
-import euler.problems.Palindrome;
-import euler.problems.Parentheses;
+import problems.Palindrome;
+import problems.Parentheses;
 
 public class ProblemsTest {
     private static final int TIMEOUT = 60000;
