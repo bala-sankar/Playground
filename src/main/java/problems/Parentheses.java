@@ -1,4 +1,4 @@
-package problems;
+package euler.problems;
 
 import datastructure.stack.Stack;
 import datastructure.stack.StackImpl;
