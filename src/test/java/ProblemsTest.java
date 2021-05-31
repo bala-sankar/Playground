@@ -73,4 +73,9 @@ public class ProblemsTest {
     public void longestSubstringTest() {
         Assert.assertEquals(3, LongestSubstring.length("abcabcbb"));
     }
+
+//    @Test(timeout = TIMEOUT)
+//    public void longestSubstringTest() {
+//        Assert.assertEquals(3, LongestSubstring.length("abcabcbb"));
+//    }
 }
