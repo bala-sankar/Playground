@@ -61,4 +61,21 @@ public class TwoSum {
         }
         throw new IllegalArgumentException("No two sum solution");
     }
+
+    public static void main(String[] args) {
+
+    }
+
+    public int[] twoSum2(int[] nums, int target) {
+        // Find complement and add the position in the map
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            int complement = target - nums[i];
+            if (map.containsKey(complement)) {
+                return new int[] {map.get(complement), i};
+            }
+            map.put(complement, i);
+        }
+        throw new IllegalArgumentException("No two sum solution");
+    }
 }
