@@ -1,4 +1,4 @@
-package problems;
+package educative;
 
 /*
  Given an array of size n, remove all even integers from it

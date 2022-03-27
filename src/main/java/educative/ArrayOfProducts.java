@@ -1,4 +1,4 @@
-package problems;
+package educative;
 
 import java.util.Arrays;
 
