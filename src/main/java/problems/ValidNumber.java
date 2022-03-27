@@ -1,8 +1,11 @@
 package problems;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ValidNumber {
     // Current State to Next State map
@@ -20,13 +23,9 @@ public class ValidNumber {
     // These are all of the valid finishing states for our DFA.
     private static final Set<Integer> validFinalStates = Set.of(1, 4, 7);
 
-    public static void main(String[] args) {
-
-    }
-
     // regex - ^[+-]?(\d+|\d+\.\d*|\d*\.\d+)([eE][+-]?\d+)?$
     //DFA - docs/problems/ValidNumber/DFA.png
-    public boolean isNumber(String s) {
+    public static boolean isNumber(String s) {
         int currentState = 0;
         String group = "";
 
@@ -50,5 +49,50 @@ public class ValidNumber {
             currentState = dfa.get(currentState).get(group);
         }
         return validFinalStates.contains(currentState);
+    }
+
+    public static boolean isNumberPattern(String s) {
+        String patternString = "^[+-]?(\\d+|\\d+\\.\\d*|\\d*\\.\\d+)([eE][+-]?\\d+)?$";
+        Pattern pattern = Pattern.compile(patternString);
+        Matcher matcher = pattern.matcher(s);
+        return matcher.matches();
+    }
+
+    public static void main(String[] args) {
+        long startTime = System.currentTimeMillis();
+        String input = "0";
+        System.out.println("Result is : " + isNumber(input));
+        System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
+        startTime = System.currentTimeMillis();
+        System.out.println("Result is : " + isNumberPattern(input));
+        System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
+        System.out.println("--------------------");
+
+        input = "e";
+        startTime = System.currentTimeMillis();
+        System.out.println("Result is : " + isNumber(input));
+        System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
+        startTime = System.currentTimeMillis();
+        System.out.println("Result is : " + isNumberPattern(input));
+        System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
+        System.out.println("--------------------");
+
+        input = ".";
+        startTime = System.currentTimeMillis();
+        System.out.println("Result is : " + isNumber(input));
+        System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
+        startTime = System.currentTimeMillis();
+        System.out.println("Result is : " + isNumberPattern(input));
+        System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
+        System.out.println("--------------------");
+
+        input = ".1";
+        startTime = System.currentTimeMillis();
+        System.out.println("Result is : " + isNumber(input));
+        System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
+        startTime = System.currentTimeMillis();
+        System.out.println("Result is : " + isNumberPattern(input));
+        System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
+        System.out.println("--------------------");
     }
 }
