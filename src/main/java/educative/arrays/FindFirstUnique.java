@@ -1,4 +1,4 @@
-package educative;
+package educative.arrays;
 
 import java.util.HashMap;
 import java.util.Map;

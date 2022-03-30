@@ -1,4 +1,4 @@
-package educative;
+package educative.arrays;
 
 /*
 Given an array, can you re-arrange the elements such that the first position will have the largest number, the second will have the smallest, the third will have the second-largest, and so on.

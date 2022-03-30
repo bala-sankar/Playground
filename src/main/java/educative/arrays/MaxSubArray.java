@@ -1,4 +1,4 @@
-package educative;
+package educative.arrays;
 
 /*
 Given an array, find the sum of contiguous subarray with the largest sum.

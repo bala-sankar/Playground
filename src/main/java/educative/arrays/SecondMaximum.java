@@ -1,4 +1,4 @@
-package educative;
+package educative.arrays;
 
 /*
 Given an array of size n, can you find the second maximum element in the array

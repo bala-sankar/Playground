@@ -1,4 +1,4 @@
-package educative;
+package educative.arrays;
 
 /*
 Given an array, can you re-arrange its elements in such a way that the negative elements appear at one side and positive elements appear at the other?

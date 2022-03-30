@@ -1,4 +1,4 @@
-package educative;
+package educative.arrays;
 
 /*
  Given an array of size n, remove all even integers from it

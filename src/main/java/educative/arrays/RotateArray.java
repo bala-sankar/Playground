@@ -1,4 +1,4 @@
-package educative;
+package educative.arrays;
 
 /*
 Given an array, can you rotate its elements once from right to left
