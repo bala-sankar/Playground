@@ -19,6 +19,11 @@ public class QueueImpl<T> implements Queue<T> {
         return items.remove(items.size() - 1);
     }
 
+    @Override
+    public T front() {
+        return items.get(items.size() - 1);
+    }
+
     public boolean isEmpty() {
         return items.isEmpty();
     }
