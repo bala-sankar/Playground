@@ -42,8 +42,8 @@ public class BusyJames {
     private int longestSleepMins() {
         int maxSleepMin = 0;
         int sleepCounter = 0;
-        for (int i=0; i < schedule.length; i++) {
-            if (schedule[i] != 1) {
+        for (int j : schedule) {
+            if (j != 1) {
                 sleepCounter++;
             } else {
                 if (sleepCounter > maxSleepMin) {
@@ -53,10 +53,7 @@ public class BusyJames {
             }
         }
 
-        if (sleepCounter > maxSleepMin) {
-            return sleepCounter;
-        }
-        return maxSleepMin;
+        return Math.max(sleepCounter, maxSleepMin);
     }
 
     private void bookMeetings(String meetings) {

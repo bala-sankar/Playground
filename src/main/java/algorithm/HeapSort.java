@@ -30,11 +30,9 @@ public class HeapSort {
     public void maxHeapify(int[] unsortedArray, int parentNode){
         int leftChildNode = leftChildNode(parentNode);
         int rightChildNode = rightChildNode(parentNode);
-        int largestNode = -1;
+        int largestNode = parentNode;
         if(leftChildNode <= unsortedArray.length && unsortedArray[leftChildNode] > unsortedArray[parentNode]){
             largestNode = leftChildNode;
-        } else {
-            largestNode = parentNode;
         }
         if(rightChildNode <= unsortedArray.length && unsortedArray[rightChildNode] > unsortedArray[parentNode]){
             largestNode = rightChildNode;

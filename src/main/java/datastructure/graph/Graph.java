@@ -1,29 +1,25 @@
 package datastructure.graph;
 
-import java.util.LinkedList;
+import java.util.*;
 
 public class Graph {
-//    int vertices; //Total number of vertices in graph
-//    LinkedList<Integer> adjacencyList[]; //An array of linked lists to store adjacent vertices.
+    private Map<String, LinkedList<String>> adjacencyList;
 
-    // Print Graph
-    void printGraph() {
+    public Graph() {
+        this.adjacencyList = new HashMap<>();
+    }
 
+    public Map<String, LinkedList<String>> getAdjacencyList() {
+        return this.adjacencyList;
     }
 
     // Add Edge
-    void addEdge(int source,int destination, int weight) {
-
-    }
-
-    // Number of vertices in the graph
-    int getVertices() {
-        return 0;
-    }
-
-    LinkedList<Integer> getAdjacencyList() {
-        LinkedList<Integer> list = new LinkedList<>();
-
-        return list;
+    // Incomplete
+    void addEdgeOrUpdate(String source, String destination) {
+        if(!this.adjacencyList.containsKey(source)) {
+            this.adjacencyList.put(source, new LinkedList<>());
+        }
+//        Map<String, Integer> connections = this.adjacencyList.get(source);
+//        connections.merge(destination, weight, Integer::sum);
     }
 }

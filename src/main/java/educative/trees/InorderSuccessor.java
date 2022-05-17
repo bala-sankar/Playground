@@ -25,14 +25,14 @@ public class InorderSuccessor {
         return null;
     }
 
-    private BinaryTreeNode traverseInorder(BinaryTreeNode node, int nodeValue) {
-        if (node == null) {
-            return null;
-        }
-        convertInorder(node.leftNode, result);
-        result.add(node);
-        convertInorder(node.rightNode, result);
-    }
+//    private BinaryTreeNode traverseInorder(BinaryTreeNode node, int nodeValue) {
+//        if (node == null) {
+//            return null;
+//        }
+//        convertInorder(node.leftNode, result);
+//        result.add(node);
+//        convertInorder(node.rightNode, result);
+//    }
 
 
 }

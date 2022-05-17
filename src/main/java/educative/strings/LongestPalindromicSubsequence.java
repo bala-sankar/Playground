@@ -23,4 +23,11 @@ public class LongestPalindromicSubsequence {
         }
         return dp[start][end];
     }
+
+    // Minimum deletion to make a palindrome.
+    public int findMinimumDeletions(String st) {
+        // subtracting the length of Longest Palindromic Subsequence from the length of
+        // the input string to get minimum number of deletions
+        return st.length() - findLPSLength(st);
+    }
 }
