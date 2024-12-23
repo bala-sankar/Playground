@@ -73,7 +73,7 @@ public class Problem93 {
                 }
             }
             for (int i = 1; i <= 100 ; i++){
-                if(!results.contains(new Integer(i))){
+                if(!results.contains(i)){
                     if(i-1 > maxConsInteger) {
                         maxConsInteger = i - 1;
                         maxDigits = number;
@@ -89,19 +89,17 @@ public class Problem93 {
         if(u == null || v==null){
             return null;
         }
-        switch (operator){
-            case '+':
-                return u.add(v);
-            case '-':
-                return u.subtract(v);
-            case '*':
-                return u.multiply(v);
-            case '/':
-                if(v.equals(Fraction.ZERO)){
-                    return null;
+        return switch (operator) {
+            case '+' -> u.add(v);
+            case '-' -> u.subtract(v);
+            case '*' -> u.multiply(v);
+            case '/' -> {
+                if (v.equals(Fraction.ZERO)) {
+                    yield null;
                 }
-                return u.divide(v);
-        }
-        return null;
+                yield u.divide(v);
+            }
+            default -> null;
+        };
     }
 }

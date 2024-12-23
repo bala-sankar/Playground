@@ -1,77 +1,83 @@
 import algorithm.BubbleSort;
 import algorithm.InsertionSort;
 import algorithm.MergeSort;
-import org.junit.*;
-import org.junit.rules.TestName;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
+
+import java.util.concurrent.TimeUnit;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 /**
  * Created by bsankar on 8/9/14.
  */
+@Timeout(value = 30, unit = TimeUnit.SECONDS, threadMode = Timeout.ThreadMode.SEPARATE_THREAD)
+@Execution(value = ExecutionMode.CONCURRENT)
 public class AlgorithmTest {
     private static final int TIMEOUT = 60000;
     private static long overallStartTime;
-    @Rule
-    public TestName name = new TestName();
+
     private long startTime;
 
-    @BeforeClass
+    @BeforeAll
     public static void beforeTestClass() {
         overallStartTime = System.currentTimeMillis();
     }
 
-    @AfterClass
+    @AfterAll
     public static void afterTestClass() {
         long stopTime = System.currentTimeMillis();
         double elapsedTime = (stopTime - overallStartTime) / 1000.0;
         System.out.println("Time took to run all the tests in UtilTest:\t" + elapsedTime);
     }
 
-    @Before
+    @BeforeEach
     public void beforeTest() {
         startTime = System.currentTimeMillis();
     }
 
-    @After
-    public void afterTest() {
+    @AfterEach
+    public void afterTest(TestInfo testInfo) {
         long stopTime = System.currentTimeMillis();
         double elapsedTime = (stopTime - startTime) / 1000.0;
-        System.out.println("Time took to run " + name.getMethodName() + ":\t" + elapsedTime);
+        System.out.println("Time took to run " + testInfo.getDisplayName() + ":\t" + elapsedTime);
     }
 
-    @Test(timeout = TIMEOUT)
+    @Test
     public void insertionSortTest() {
         int[] unsortedArray = new int[] {5,2,4,6,1,3};
         InsertionSort.sort(unsortedArray);
         int[] expectedSortedArray = new int[] {1,2,3,4,5,6};
-        Assert.assertArrayEquals(expectedSortedArray, unsortedArray);
+        assertArrayEquals(expectedSortedArray, unsortedArray);
         unsortedArray = new int[] {31, 41, 59, 26, 41, 58};
         expectedSortedArray = new int[]{26, 31, 41, 41, 58, 59};
         InsertionSort.sort(unsortedArray);
-        Assert.assertArrayEquals(expectedSortedArray, unsortedArray);
+        assertArrayEquals(expectedSortedArray, unsortedArray);
     }
 
-    @Test(timeout = TIMEOUT)
+    @Test
     public void mergeSortTest() {
         int[] unsortedArray = new int[] {5,2,4,6,1,3};
         MergeSort.sort(unsortedArray);
         int[] expectedSortedArray = new int[] {1,2,3,4,5,6};
-        Assert.assertArrayEquals(expectedSortedArray, unsortedArray);
+        assertArrayEquals(expectedSortedArray, unsortedArray);
         unsortedArray = new int[] {31, 41, 59, 26, 41, 58};
         expectedSortedArray = new int[]{26, 31, 41, 41, 58, 59};
         MergeSort.sort(unsortedArray);
-        Assert.assertArrayEquals(expectedSortedArray, unsortedArray);
+        assertArrayEquals(expectedSortedArray, unsortedArray);
     }
 
-    @Test(timeout = TIMEOUT)
+    @Test
     public void bubbleSortTest() {
         int[] unsortedArray = new int[] {5,2,4,6,1,3};
         BubbleSort.sort(unsortedArray);
         int[] expectedSortedArray = new int[] {1,2,3,4,5,6};
-        Assert.assertArrayEquals(expectedSortedArray, unsortedArray);
+        assertArrayEquals(expectedSortedArray, unsortedArray);
         unsortedArray = new int[] {31, 41, 59, 26, 41, 58};
         expectedSortedArray = new int[]{26, 31, 41, 41, 58, 59};
         BubbleSort.sort(unsortedArray);
-        Assert.assertArrayEquals(expectedSortedArray, unsortedArray);
+        assertArrayEquals(expectedSortedArray, unsortedArray);
 
     }
 }

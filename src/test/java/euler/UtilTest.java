@@ -2,81 +2,86 @@ package euler;
 
 import euler.utils.Util;
 import org.apache.commons.math3.fraction.BigFraction;
-import org.junit.*;
-import org.junit.rules.TestName;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Created by IntelliJ IDEA.
  * User: bsankar
  * Date: 1/30/12
  */
+@Timeout(value = 30, unit = TimeUnit.SECONDS, threadMode = Timeout.ThreadMode.SEPARATE_THREAD)
+@Execution(value = ExecutionMode.CONCURRENT)
 public class UtilTest extends Util {
     private static final int TIMEOUT = 60000;
     private static long overallStartTime;
-    @Rule
-    public TestName name = new TestName();
+
     private long startTime;
 
-    @BeforeClass
+    @BeforeAll
     public static void beforeTestClass() {
         overallStartTime = System.currentTimeMillis();
     }
 
-    @AfterClass
+    @AfterAll
     public static void afterTestClass() {
         long stopTime = System.currentTimeMillis();
         double elapsedTime = (stopTime - overallStartTime) / 1000.0;
         System.out.println("Time took to run all the tests in UtilTest:\t" + elapsedTime);
     }
 
-    @Before
+    @BeforeEach
     public void beforeTest() {
         startTime = System.currentTimeMillis();
     }
 
-    @After
-    public void afterTest() {
+    @AfterEach
+    public void afterTest(TestInfo testInfo) {
         long stopTime = System.currentTimeMillis();
         double elapsedTime = (stopTime - startTime) / 1000.0;
-        System.out.println("Time took to run " + name.getMethodName() + ":\t" + elapsedTime);
+        System.out.println("Time took to run " + testInfo.getDisplayName() + ":\t" + elapsedTime);
     }
 
-    @Test(timeout = TIMEOUT)
+    @Test
     public void findXTest() {
         long c = 52, p = 1;
         long expected = 2;
         long x = findX(c, p);
-        Assert.assertEquals(expected, x);
+        assertEquals(expected, x);
 
         c = 11900;
         p = 141;
         expected = 4;
         x = findX(c, p);
-        Assert.assertEquals(expected, x);
+        assertEquals(expected, x);
     }
 
-    @Test(timeout = TIMEOUT)
+    @Test
     public void sqrtForBigNumTest() {
         String root = sqrtForBigNum("2");
-        Assert.assertEquals("1.4142135", root);
+        assertEquals("1.4142135", root);
 
         root = sqrtForBigNum("4");
-        Assert.assertEquals("2.0000000", root);
+        assertEquals("2.0000000", root);
     }
 
-    @Test(timeout = TIMEOUT)
+    @Test
     public void getContinuedFractionsTest() {
         //String f = getContinuedFractions(13);
         String[] continuedFraction = Util.getContinuedFractions(7).split(";");
         int a = Integer.parseInt(continuedFraction[0]);
         String[] periods = continuedFraction[1].split(",");
         BigFraction temp = getConvergent(0, periods, a);
-        Assert.assertEquals("2~1", temp.getNumerator() + "~" + temp.getDenominator());
+        assertEquals("2~1", temp.getNumerator() + "~" + temp.getDenominator());
     }
 
-/*    @Test(timeout = TIMEOUT)
+/*    @Test
     public void getFactorCountTest() {
         TreeSet<Long> primeNums = Util.getPrimeNumsByCount(20);
         for (int i = 2; i <= 12; i++) {
@@ -84,7 +89,7 @@ public class UtilTest extends Util {
         }
     }*/
 
-    @Test(timeout = TIMEOUT)
+    @Test
     public void getCombinationTest() {
         ArrayList<String> numbers = new ArrayList<String>();
         numbers.add("0");
@@ -92,12 +97,12 @@ public class UtilTest extends Util {
         numbers.add("2");
         numbers.add("3");
         ArrayList<String> combinations = getCombination(numbers, 3);
-        Assert.assertEquals(4, combinations.size());
+        assertEquals(4, combinations.size());
         combinations = getCombination(numbers, 2);
-        Assert.assertEquals(6, combinations.size());
+        assertEquals(6, combinations.size());
     }
 
-    @Test(timeout = TIMEOUT)
+    @Test
     public void getPermutationTest() {
         ArrayList<String> numbers = new ArrayList<String>();
         numbers.add("0");
@@ -105,19 +110,19 @@ public class UtilTest extends Util {
         numbers.add("2");
         numbers.add("3");
         ArrayList<String> permutations = getPermutations(numbers, 3);
-        Assert.assertEquals(24, permutations.size());
+        assertEquals(24, permutations.size());
     }
 
-    @Test(timeout = TIMEOUT)
+    @Test
     public void isPalindromeTest() {
-        Assert.assertTrue(isPalindrome(1001));
-        Assert.assertFalse(isPalindrome(1002));
+        assertTrue(isPalindrome(1001));
+        assertFalse(isPalindrome(1002));
     }
 
-    @Test(timeout = TIMEOUT)
+    @Test
     public void gcdTest() {
-        Assert.assertEquals(gcd(7, 18), 1);
-        Assert.assertEquals(gcd(8,18), 2);
+        assertEquals(1, gcd(7, 18));
+        assertEquals(2, gcd(8,18));
 
     }
 }

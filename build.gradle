@@ -10,6 +10,7 @@ repositories {
 
 test {
     useJUnitPlatform()
+    maxParallelForks = 4
     // set heap size for the test JVM(s)
     minHeapSize = "128m"
     maxHeapSize = "512m"
@@ -20,6 +21,11 @@ dependencies {
     implementation group: 'org.jgrapht', name: 'jgrapht-jdk1.5', version: '0.7.3'
     implementation 'com.google.code.gson:gson:2.10.1'
 
-    testImplementation('junit:junit:4.13.1')
-    testRuntimeOnly("org.junit.vintage:junit-vintage-engine:5.7.0")
+    testImplementation(platform("org.junit:junit-bom:5.11.4"))
+    testImplementation("org.junit.jupiter:junit-jupiter:5.11.4")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher") {
+        because("Only needed to run tests in a version of IntelliJ IDEA that bundles older versions")
+    }
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
+    testRuntimeOnly("org.junit.vintage:junit-vintage-engine")
 }

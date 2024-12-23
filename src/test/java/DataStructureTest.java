@@ -4,81 +4,81 @@ import datastructure.queue.Queue;
 import datastructure.queue.QueueImpl;
 import datastructure.stack.Stack;
 import datastructure.stack.StackImpl;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TestName;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 
+import java.util.concurrent.TimeUnit;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+@Timeout(value = 30, unit = TimeUnit.SECONDS, threadMode = Timeout.ThreadMode.SEPARATE_THREAD)
+@Execution(value = ExecutionMode.CONCURRENT)
 public class DataStructureTest {
     private static final int TIMEOUT = 60000;
     private static long overallStartTime;
-    @Rule
-    public TestName name = new TestName();
+
     private long startTime;
 
-    @BeforeClass
+    @BeforeAll
     public static void BeforeTestClass() {
         overallStartTime = System.currentTimeMillis();
     }
 
-    @AfterClass
+    @AfterAll
     public static void AfterTestClass() {
         long stopTime = System.currentTimeMillis();
         double elapsedTime = (stopTime - overallStartTime) / 1000.0;
         System.out.println("Time took to run all the tests in DataStructureTest:\t" + elapsedTime);
     }
 
-    @Before
+    @BeforeEach
     public void BeforeTest() {
         startTime = System.currentTimeMillis();
     }
 
-    @After
-    public void AfterTest() {
+    @AfterEach
+    public void AfterTest(TestInfo testInfo) {
         long stopTime = System.currentTimeMillis();
         double elapsedTime = (stopTime - startTime) / 1000.0;
-        System.out.println("Time took to run " + name.getMethodName() + ":\t" + elapsedTime);
+        System.out.println("Time took to run " + testInfo.getDisplayName() + ":\t" + elapsedTime);
     }
 
-    @Test(timeout = TIMEOUT)
+    @Test
     public void stackTest() {
         Stack<String> items = new StackImpl<String>();
-        Assert.assertTrue(items.isEmpty());
+        assertTrue(items.isEmpty());
         items.push("Hello");
-        Assert.assertEquals(items.peep(), "Hello");
+        assertEquals("Hello", items.peep());
         items.push("World");
-        Assert.assertEquals(items.peep(), "World");
-        Assert.assertEquals(items.pop(), "World");
-        Assert.assertEquals(items.peep(), "Hello");
-        Assert.assertEquals(items.size(), 1);
+        assertEquals("World", items.peep());
+        assertEquals("World", items.pop());
+        assertEquals("Hello", items.peep());
+        assertEquals(1, items.size());
     }
 
-    @Test(timeout = TIMEOUT)
+    @Test
     public void queueTest() {
         Queue<String> items = new QueueImpl<String>();
-        Assert.assertTrue(items.isEmpty());
+        assertTrue(items.isEmpty());
         items.enqueue("Hello");
         items.enqueue("World");
-        Assert.assertFalse(items.isEmpty());
-        Assert.assertEquals(items.size(), 2);
-        Assert.assertEquals(items.dequeue(), "Hello");
-        Assert.assertEquals(items.size(), 1);
+        assertFalse(items.isEmpty());
+        assertEquals(2, items.size());
+        assertEquals("Hello", items.dequeue());
+        assertEquals(1, items.size());
     }
 
-    @Test(timeout = TIMEOUT)
+    @Test
     public void dequeTest() {
         Deque<String> items = new DequeImpl<String>();
-        Assert.assertTrue(items.isEmpty());
+        assertTrue(items.isEmpty());
         items.addRear("Fun");
         items.addFront("Hello");
         items.addRear("World");
-        Assert.assertEquals(items.size(), 3);
-        Assert.assertEquals(items.removeFront(), "Hello");
-        Assert.assertEquals(items.removeRear(), "World");
-        Assert.assertEquals(items.size(), 1);
+        assertEquals(3, items.size());
+        assertEquals("Hello", items.removeFront());
+        assertEquals("World", items.removeRear());
+        assertEquals(1, items.size());
     }
 }

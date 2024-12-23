@@ -1,81 +1,81 @@
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TestName;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 import problems.*;
 
+import java.util.concurrent.TimeUnit;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+@Timeout(value = 30, unit = TimeUnit.SECONDS, threadMode = Timeout.ThreadMode.SEPARATE_THREAD)
+@Execution(value = ExecutionMode.CONCURRENT)
 public class ProblemsTest {
     private static final int TIMEOUT = 60000;
     private static long overallStartTime;
-    @Rule
-    public TestName name = new TestName();
+
     private long startTime;
 
-    @BeforeClass
+    @BeforeAll
     public static void BeforeTestClass() {
         overallStartTime = System.currentTimeMillis();
     }
 
-    @AfterClass
+    @AfterAll
     public static void AfterTestClass() {
         long stopTime = System.currentTimeMillis();
         double elapsedTime = (stopTime - overallStartTime) / 1000.0;
         System.out.println("Time took to run all the tests in ProblemTest:\t" + elapsedTime);
     }
 
-    @Before
+    @BeforeEach
     public void BeforeTest() {
         startTime = System.currentTimeMillis();
     }
 
-    @After
-    public void AfterTest() {
+    @AfterEach
+    public void AfterTest(TestInfo testInfo) {
         long stopTime = System.currentTimeMillis();
         double elapsedTime = (stopTime - startTime) / 1000.0;
-        System.out.println("Time took to run " + name.getMethodName() + ":\t" + elapsedTime);
+        System.out.println("Time took to run " + testInfo.getDisplayName() + ":\t" + elapsedTime);
     }
 
-    @Test(timeout = TIMEOUT)
+    @Test
     public void parenthesesTest() {
-        Assert.assertTrue(Parentheses.check("{(a+[b+c])+d}"));
-        Assert.assertFalse(Parentheses.check("{(a+[b+c]+d})"));
-        Assert.assertFalse(Parentheses.check("{(a+[b+c]+d"));
+        assertTrue(Parentheses.check("{(a+[b+c])+d}"));
+        assertFalse(Parentheses.check("{(a+[b+c]+d})"));
+        assertFalse(Parentheses.check("{(a+[b+c]+d"));
     }
 
-    @Test(timeout = TIMEOUT)
+    @Test
     public void palindromeTest() {
-        Assert.assertTrue(Palindrome.check("mom"));
-        Assert.assertFalse(Palindrome.check("cat"));
-        Assert.assertFalse(Palindrome.check("Mom"));
+        assertTrue(Palindrome.check("mom"));
+        assertFalse(Palindrome.check("cat"));
+        assertFalse(Palindrome.check("Mom"));
     }
 
-    @Test(timeout = TIMEOUT)
+    @Test
     public void oddEvenJumpTest() {
         int[] testData1 = new int[] {10,13,12,14,15};
-        Assert.assertEquals(2, OddEvenJump.oddEvenJumps(testData1));
+        assertEquals(2, OddEvenJump.oddEvenJumps(testData1));
         int[] testData2 = new int[] {5,1,3,4,2};
-        Assert.assertEquals(3, OddEvenJump.oddEvenJumps(testData2));
+        assertEquals(3, OddEvenJump.oddEvenJumps(testData2));
 //        int[] testData3 = new int[] {44,22,11,55,55};
-//        Assert.assertEquals(3, OddEvenJump.oddEvenJumps(testData3));
+//        assertEquals(3, OddEvenJump.oddEvenJumps(testData3));
     }
 
-    @Test(timeout = TIMEOUT)
+    @Test
     public void licenseKeyFormattingTest() {
-        Assert.assertEquals("5F3Z-2E9W", LicenseKeyFormatting.format("5F3Z-2e-9-w", 4));
-        Assert.assertEquals("AA-AA", LicenseKeyFormatting.format("--a-a-a-a--", 2));
+        assertEquals("5F3Z-2E9W", LicenseKeyFormatting.format("5F3Z-2e-9-w", 4));
+        assertEquals("AA-AA", LicenseKeyFormatting.format("--a-a-a-a--", 2));
     }
 
-    @Test(timeout = TIMEOUT)
+    @Test
     public void longestSubstringTest() {
-        Assert.assertEquals(3, LongestSubstring.length("abcabcbb"));
+        assertEquals(3, LongestSubstring.length("abcabcbb"));
     }
 
-//    @Test(timeout = TIMEOUT)
+//    @Test
 //    public void longestSubstringTest() {
-//        Assert.assertEquals(3, LongestSubstring.length("abcabcbb"));
+//        assertEquals(3, LongestSubstring.length("abcabcbb"));
 //    }
 }
