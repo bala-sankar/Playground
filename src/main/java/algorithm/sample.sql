@@ -1,0 +1,1 @@
+select ID, NAME from CUSTOMER where COUNTRY = "USA" and CREDITS > 100000 order by ID asc
