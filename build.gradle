@@ -5,7 +5,7 @@ description = "Code playground monolith repo"
 apply plugin: 'java'
 
 repositories {
-    jcenter()
+    mavenCentral()
 }
 
 test {
