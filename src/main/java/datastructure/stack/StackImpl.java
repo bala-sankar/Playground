@@ -22,7 +22,7 @@ public class StackImpl<T> implements Stack<T> {
         return items.remove(items.size() - 1);
     }
 
-        public T peep() {
+    public T peep() {
         return items.get(items.size() - 1);
     }
 
