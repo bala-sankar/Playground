@@ -1,36 +1,43 @@
-# Data Structures
+# Playground: Coding Problems & Patterns
 
-## Stack
+This repository contains a collection of coding problems, data structures, algorithms, and design pattern implementations. It is organized for learning, practicing, and reference purposes.
 
+## Contents
 
-# Design Patterns
+- **Data Structures**: Stack, Queue, Linked List, Tree, Graph, Heap, and more.
+- **Algorithms**: Sorting (Bubble, Heap, Insertion, Merge), Searching, Two Pointers, Dynamic Programming, and others.
+- **Design Patterns**: Strategy, Observer, Decorator, Factory Method, Abstract Factory, Singleton, and more.
+- **Problem Solutions**: Classic and interview-style problems (e.g., Two Sum, LRU Cache, Add Two Numbers, Palindrome, Valid Number, Word Break, etc.).
+- **Project Euler**: Solutions to selected Project Euler problems.
+- **Educative Patterns**: Arrays, Strings, Trees, Heaps, Queues, and Two Pointers patterns from popular learning platforms.
 
-Strategy - defines a family of algorithms encapsulates each one , and makes them interchangable. Strategy lets the
-    algorithm vary independently from clients that we use it.
+## Directory Structure
 
-Observer - defines one-to-many dependency between objects  so that when one object changes state, all of its dependents
-    are notified  and updated automatically.
+- `src/` - Source code for problems, data structures, and patterns
+- `bin/` - Compiled classes and resource files
+- `docs/` - Documentation and problem overviews
+- `build/`, `libs/`, `target/` - Build artifacts and dependencies
 
-Decorator - attaches additional responsibilities to an object dynamically. Decorators provide a flexible alternative to
-    subclassing for extending functionality.
+## Example Problem Categories
 
-Factory Method - defines an interface for creating an object, but lets subclasses decide which class to
-    instantiate. Factory Method lets a class defer instantiation to subclasses.
+- **Array & String Manipulation**: e.g., Longest Substring, License Key Formatting
+- **Linked List Problems**: e.g., Add Two Numbers, Merge Lists
+- **Stack & Queue Problems**: e.g., MinStack, Parentheses Validation
+- **Dynamic Programming**: e.g., Decode Ways, Word Break
+- **Math & Logic**: e.g., Palindrome, Smallest Positive Integer
+- **Graph & Tree Problems**: e.g., Siblings, Tree Traversals
+- **Design Patterns**: Implementations in `bin/main/designpattern/`
 
-Abstract Factory - provides an interface for creating families of related or dependent objects without specifying
-    their concrete classes.
+## How to Use
 
-Singleton - ensures a class has only one instance, and provides a global point of access to it.
+1. Clone the repository.
+2. Build with Gradle: `./gradlew build`
+3. Run tests or individual classes as needed.
 
-# Design Principle
+## Contributing
 
-* Program to an interface, not an implementation
-* Favor composition over inheritance
-* Encapsulate what varies
-* Strive for loosely coupled designs between objects that interact
-* Classes should be open for extension, but closed for modification
-* Depend upon abstractions. Do not depend upon concrete classes.
-* To follow Dependency Inversion Principle
-    - No variable should hold a reference to a concrete class.
-    - No class should derive from a concrete class.
-    - No method should override an implemented method of any of its base classes.
+Contributions are welcome! Please open issues or submit pull requests for improvements or new problems.
+
+---
+
+*This repository is for educational and reference purposes. See individual files for more details on each problem or pattern.*

@@ -1,5 +1,18 @@
 package educative.strings;
 
+/*
+Problem Statement:
+Given a string, find and return all possible palindromic substrings within it.
+A palindromic substring is a sequence of characters that reads the same backward as forward.
+
+Examples:
+Input:  "ababa"
+Output: ["aba", "bab", "ababa"]
+
+Input:  "racecar"
+Output: ["cec", "aceca", "racecar"]
+*/
+
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,5 +1,17 @@
 package educative.strings;
 
+/*
+Problem Statement:
+Given a character array, remove duplicate characters and return the resulting string with only the first occurrence of each character preserved.
+
+Examples:
+Input:  ['w', 'e', ' ', 'l', 'o', 'v', 'e', ' ', 'j', 'a', 'v', 'a']
+Output: "we lovja"
+
+Input:  ['a', 'b', 'a', 'c', 'b']
+Output: "abc"
+*/
+
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedHashSet;

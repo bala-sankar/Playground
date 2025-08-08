@@ -1,5 +1,18 @@
 package educative.strings;
 
+/*
+Problem Statement:
+Given a string, find the longest palindromic substring within it.
+A palindromic substring is a sequence of characters that reads the same backward as forward.
+
+Examples:
+Input:  "babad"
+Output: "bab" or "aba"
+
+Input:  "cbbd"
+Output: "bb"
+*/
+
 public class LongestPalindromicSubstring {
 //    public int findLPSLength(String st) {
 //        Integer[][] dp = new Integer[st.length()][st.length()];

@@ -2,6 +2,18 @@ package educative.strings;
 
 import java.util.*;
 
+/*
+Problem Statement:
+Given a string and a dictionary of words, determine if the string can be segmented into a space-separated sequence of one or more dictionary words.
+
+Examples:
+Input:  "applepie", dictionary = ["apple", "pie"]
+Output: true
+
+Input:  "applepeer", dictionary = ["apple", "pear", "pie"]
+Output: false
+*/
+
 public class StringSegmentation {
 
     public static boolean segmentString(String inputString, Set<String> dictionary) {

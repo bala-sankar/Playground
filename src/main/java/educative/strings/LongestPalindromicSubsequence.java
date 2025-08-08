@@ -1,5 +1,20 @@
 package educative.strings;
 
+/*
+Problem Statement:
+Given a string, find the length of the longest palindromic subsequence.
+A subsequence is a sequence that can be derived from another sequence by deleting some or no elements without changing the order of the remaining elements.
+
+Examples:
+Input:  "bbbab"
+Output: 4
+Explanation: The longest palindromic subsequence is "bbbb".
+
+Input:  "cbbd"
+Output: 2
+Explanation: The longest palindromic subsequence is "bb".
+*/
+
 public class LongestPalindromicSubsequence {
     public int findLPSLength(String st) {
         Integer[][] dp = new Integer[st.length()][st.length()];

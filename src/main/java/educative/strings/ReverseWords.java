@@ -1,5 +1,17 @@
 package educative.strings;
 
+/*
+Problem Statement:
+Given a character array representing a sentence, reverse the order of words in the sentence in place.
+
+Examples:
+Input:  ['t','h','e',' ','s','k','y',' ','i','s',' ','b','l','u','e']
+Output: "blue is sky the"
+
+Input:  ['h','e','l','l','o',' ','w','o','r','l','d']
+Output: "world hello"
+*/
+
 public class ReverseWords {
     public static String reverseWords(char[] sentence) {
         if (sentence == null || sentence.length == 0) {

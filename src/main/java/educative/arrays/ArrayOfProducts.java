@@ -3,13 +3,19 @@ package educative.arrays;
 import java.util.Arrays;
 
 /*
-Given an array, return an array where each index stores the product of all numbers except the number on the index itself.
+Problem Statement:
+Given an array of integers, return a new array such that each element at index i of the new array is the product of all the numbers in the original array except the one at i.
 
-Input
+Examples:
+Input:  [1, 2, 3, 4]
+Output: [24, 12, 8, 6]
 
-Output
+Input:  [2, 0, 2, 0, 1]
+Output: [0, 0, 0, 0, 0]
 
- */
+Input:  [0, 1, 2, 3]
+Output: [6, 0, 0, 0]
+*/
 public class ArrayOfProducts {
     public static void main(String[] args) {
 
